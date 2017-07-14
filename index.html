@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Chart JS</title>
+</head>
+<body>
+<div class="container">
+	<canvas id="mychart"></canvas>
+	</div>
+<script >
+	let mychart = document.getElementById('mychart').getContext('2d');
+	//Global Options
+	Chart.defaults.global.defaultFontFamily = 'Lato';
+	Chart.defaults.global.defaultFontFontSize=18;
+	Chart.defaults.global.defaultFontColor='#777';
+	let popChart = new Chart(mychart, {
+		type:'radar', //bar, pie doughnut, horizontalBar, line, radar
+		data:{
+			labels:['Kiambu', 'Kisumu', 'Nairobi','Mombasa', 'Uasin Gishu'],
+			datasets:[{
+				label: 'Registered Voters',
+				data:[1173593,
+				548868,
+				2304386,
+				596485,
+				451485],
+				//backgroundColor:'blue'
+				backgroundColor:[
+				'rgb(0,255,255)',
+				'rgb(128,0,128)',
+				'rgb(255,0,255)',
+				'rgb(255,0,0)',
+				'rgb(255,255,0)'],
+				borderWidth:1,
+				borderColor:'#777',
+				hoverBorderColor:'#000',
+				hoverBorderWidth:3
+
+			}]
+		},
+		options:{
+			title:{
+				display:true,
+				text: 'Registered Voters in Counties',
+				fontSize:25
+			},
+			legend: {
+				position: 'right',
+				labels:{
+					fontColor:'#000'
+				}
+			},
+			layout:{
+				padding:{
+					left:50,
+					right:0,
+					bottom:0,
+					top:0
+				}
+			},
+			tooltips:{
+				enabled:true
+			}
+		}
+	});
+</script>
+</body>
+</html>
